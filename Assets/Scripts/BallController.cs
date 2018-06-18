@@ -22,9 +22,12 @@ public class BallController : MonoBehaviour {
     public float constantSpeed;
     public GameObject arrow;
 
+    private GameManager gameManager;
+
 
 	// Use this for initialization
 	void Start () {
+        gameManager = FindObjectOfType<GameManager>();
         currentBallState = ballState.aim;
 
     }
@@ -49,9 +52,19 @@ public class BallController : MonoBehaviour {
                 break;
             case ballState.fire:
                 break;
+
             case ballState.wait:
+                currentBallState = ballState.endShot;
                 break;
+
             case ballState.endShot:
+                for(int i = 0; i< gameManager.bricksInScene.Count; i++)
+                {
+                    gameManager.bricksInScene[i].GetComponent<BrickMovementController>().currentState = BrickMovementController.brickState.move;
+                }
+
+                gameManager.PlaceBricks();
+                currentBallState = ballState.aim;
                 break;
             default:
                 break;

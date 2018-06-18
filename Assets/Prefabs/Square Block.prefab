@@ -59,9 +59,10 @@ GameObject:
   - component: {fileID: 114149654754292356}
   - component: {fileID: 61870695748373566}
   - component: {fileID: 50631104875696102}
+  - component: {fileID: 114433238801019674}
   m_Layer: 0
   m_Name: Square Block
-  m_TagString: Untagged
+  m_TagString: Square Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,6 +159,18 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 100
+--- !u!114 &114433238801019674
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1986623078232870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17929fd9caef1874fa60cdc10d0b664e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
 --- !u!114 &114466433768972970
 MonoBehaviour:
   m_ObjectHideFlags: 1

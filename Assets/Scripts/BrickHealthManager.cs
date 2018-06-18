@@ -21,7 +21,7 @@ public class BrickHealthManager : MonoBehaviour {
         brickHealthText.text = "" + brickHealth;
         if (brickHealth <= 0)
         {
-            //Destroy brick
+            this.gameObject.SetActive(false);
         }
 	}
 

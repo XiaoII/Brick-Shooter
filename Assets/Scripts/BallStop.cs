@@ -23,7 +23,7 @@ public class BallStop : MonoBehaviour {
         if (other.gameObject.tag == "Ball")
         {
             ball.velocity = Vector2.zero;
-            ballControl.currentBallState = BallController.ballState.aim;
+            ballControl.currentBallState = BallController.ballState.wait;
         }
     }
 }

@@ -59,9 +59,10 @@ GameObject:
   - component: {fileID: 114564288104805854}
   - component: {fileID: 60631616383567818}
   - component: {fileID: 50297859080280814}
+  - component: {fileID: 114916804815032476}
   m_Layer: 0
   m_Name: Triangle Block
-  m_TagString: Untagged
+  m_TagString: Triangle Brick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -233,6 +234,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 0
+--- !u!114 &114916804815032476
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1875119483335488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17929fd9caef1874fa60cdc10d0b664e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
 --- !u!114 &114920556948905414
 MonoBehaviour:
   m_ObjectHideFlags: 1
