@@ -8,10 +8,14 @@ public class GameManager : MonoBehaviour
     public Transform[] spawnPoints;
     public GameObject squareBrick;
     public GameObject triangleBrick;
+    public GameObject extraBallPowerup;
     public int numberOfBricksToStart;
     public int level;
     public List<GameObject> bricksInScene;
+    public List<GameObject> ballsInScene;
     public ObjectPool objectPool;
+    public int numberOfExtraBallsInRow = 0;
+
 
     // Use this for initialization
     void Start()
@@ -27,7 +31,8 @@ public class GameManager : MonoBehaviour
             
             
 
-                int brickToCreate = Random.Range(0,3);
+                int brickToCreate = Random.Range(0,4); //increase if extra block/powerups added
+            //bricks
                 if (brickToCreate == 0)
                 {
                     bricksInScene.Add(Instantiate(squareBrick, spawnPoints[i].position, Quaternion.identity));
@@ -38,8 +43,15 @@ public class GameManager : MonoBehaviour
                     bricksInScene.Add(Instantiate(triangleBrick, spawnPoints[i].position, Quaternion.identity));
                    
                 }
-           
+                //powerups
+            else if (brickToCreate == 2 && numberOfExtraBallsInRow == 0)
+            {
+                bricksInScene.Add(Instantiate(extraBallPowerup, spawnPoints[i].position, Quaternion.identity));
+                numberOfExtraBallsInRow++;
+            }
+            
         }
+        numberOfExtraBallsInRow = 0;
     }
     // Update is called once per frame
     void Update()
@@ -77,7 +89,20 @@ public class GameManager : MonoBehaviour
                     brick.SetActive(true);
                 }
 
+                else if (brickToCreate == 2 && numberOfExtraBallsInRow == 0)
+                {
+                    GameObject ball = objectPool.GetPooledObject("Extra Ball Powerup");
+                    bricksInScene.Add(ball);
+                    if (ball != null)
+                    {
+                        ball.transform.position = position.position;
+                        ball.transform.rotation = Quaternion.identity;
+                        ball.SetActive(true);
+                    }
+                    numberOfExtraBallsInRow++;
+                }
             }
         }
+        numberOfExtraBallsInRow = 0;
     }
 }
